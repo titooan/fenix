@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.mozilla.fenix.R
@@ -237,6 +238,27 @@ private fun MessageCardWithoutTitlePreview() {
 @Composable
 @LightDarkPreview
 private fun MessageCardWithButtonLabelPreview() {
+    FirefoxTheme {
+        Box(
+            modifier = Modifier
+                .background(FirefoxTheme.colors.layer1)
+                .padding(all = 16.dp),
+        ) {
+            MessageCard(
+                messageText = stringResource(id = R.string.default_browser_experiment_card_text),
+                titleText = stringResource(id = R.string.bookmark_empty_title_error),
+                buttonText = stringResource(id = R.string.preferences_set_as_default_browser),
+                onClick = {},
+                onCloseButtonClick = {},
+            )
+        }
+    }
+}
+
+
+@Composable
+@Preview(fontScale = 1.5f)
+private fun MessageCardWithButtonLabelInFrenchPreview() {
     FirefoxTheme {
         Box(
             modifier = Modifier

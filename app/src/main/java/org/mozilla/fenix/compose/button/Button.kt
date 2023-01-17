@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ButtonDefaults
@@ -20,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
@@ -47,8 +47,7 @@ private fun Button(
     androidx.compose.material.Button(
         onClick = onClick,
         modifier = Modifier
-            .fillMaxWidth()
-            .height(36.dp),
+            .fillMaxWidth(),
         elevation = ButtonDefaults.elevation(defaultElevation = 0.dp, pressedElevation = 0.dp),
         colors = ButtonDefaults.outlinedButtonColors(
             backgroundColor = backgroundColor,
@@ -68,7 +67,6 @@ private fun Button(
             text = text,
             color = textColor,
             style = FirefoxTheme.typography.button,
-            maxLines = 1,
         )
     }
 }
@@ -183,6 +181,8 @@ fun DestructiveButton(
 
 @Composable
 @LightDarkPreview
+@Preview(fontScale = 0.5f)
+@Preview(fontScale = 1.5f)
 private fun ButtonPreview() {
     FirefoxTheme {
         Column(
@@ -192,7 +192,7 @@ private fun ButtonPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             PrimaryButton(
-                text = "Label",
+                text = "A label that takes a lot a space. So much space that it may need several lines to appear entirely",
                 icon = painterResource(R.drawable.ic_tab_collection),
                 onClick = {},
             )
@@ -217,3 +217,4 @@ private fun ButtonPreview() {
         }
     }
 }
+
